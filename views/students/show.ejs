@@ -1,0 +1,208 @@
+<!-- <% layout('layout/boilerplate') -%>;
+
+<div  class="cont" width="600px" height="500px">
+    <img src="<%=student.img%>" width="150px" alt="" style="border-radius: 50%;">
+    <div class="info">
+        <br>
+        <h3><b><%=student.name %></b></h3>
+        <h4><%=student.address%></h4>
+        <h4><%=student.course%> <%=student.branch%></h4>
+        <h4><%=student.year%>rd Year</h4>
+        <br>
+        <%if(currentUser && student.Author.equals(currentUser._id)){%>
+            <a href="/students/<%=student._id%>/edit" class="btn btn-primary">Edit</a>
+        <%}%>
+        
+
+    </div>
+    <div class="skills">
+        <br>
+        <p><b>Current CPI: </b><%=student.cpi%> </p>
+        
+        <p><b>Core Skills: </b><%=student.core_skills%></p>   
+        <br>
+        <div class="coding">
+            <p><b>Platform link: </b><%=student.coding_link%></p>
+            <button class="btn" style="background: green; border-radius: 8px; margin-left: 10px;" ><a href="<%=student.coding_link%>" style="color: aliceblue; font-style: normal; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">Check Profile</a></button>
+        </div>
+        <br>
+        <p><b>Certifications: </b><%=student.certifications%></p>
+    </div>
+</div>
+
+
+
+
+
+ -->
+
+
+
+<!-- <% layout('layout/boilerplate') -%>; -->
+<style>
+    td{
+        text-align: center;
+        padding-top: 20px;
+    }
+    th{
+        padding-top: 20px;
+    }
+    .detail_box{
+        box-sizing: border-box;
+        border-radius: 8px;
+        box-shadow: 10px 10px grey;
+    }
+    .chart_pos{
+        box-sizing: border-box;
+        display: flex;
+    }
+    .chart{
+        padding: 30px;
+        margin: 30px;
+    }
+    h3{
+        margin-top: 30px;
+    }
+    .circle-chart__circle {
+        animation: circle-chart-fill 2s reverse;
+        transform: rotate(-90deg);
+        transform-origin: center;
+    }
+    .circle-chart__circle--negative {
+        transform: rotate(-90deg) scale(1,-1);
+    }
+
+    .circle-chart__info {
+    animation: circle-chart-appear 2s forwards;
+    opacity: 0;
+    transform: translateY(0.3em);
+    }
+
+@keyframes circle-chart-fill {
+  to { stroke-dasharray: 0 100; }
+}
+
+@keyframes circle-chart-appear {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Layout styles only, not needed for functionality */
+    html {
+    font-family: sans-serif;
+    padding-right: 1em;
+    padding-left: 1em;
+    }
+
+    .skills_prof {
+    display: grid;
+    grid-column-gap: 1em;
+    grid-row-gap: 1em;
+    grid-template-columns: repeat(1, 1fr);
+    }
+
+    @media (min-width: 31em) {
+    .skills_prof {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    }
+    .cont{
+        background-image: url('https://upload.wikimedia.org/wikipedia/en/4/42/GLA_University_logo.png');
+        background-repeat:no-repeat;
+        background-position: 80% 10%;
+        background-attachment: local;
+  }
+</style>
+<div  class="cont" width="600px" height="500px">
+    <img src="<%=student.img%>" width="150px" alt="" style="border-radius: 50%;">
+    <div class="info">
+        <br>
+        <h3><b><%=student.name %></b></h3>
+        <h4><%=student.address%></h4>
+        <h4><%=student.course%> <%=student.branch%></h4>
+        <h4><%=student.year%>rd Year</h4>
+        <br>
+        <%if(currentUser && student.Author.equals(currentUser._id)){%>
+            <a href="/students/<%=student._id%>/edit" class="btn btn-primary btn-sm">Edit Profile</a>
+
+            <form class="d-inline-block" action="/students/<%=student._id%>?_method=DELETE" method="post">
+                <button class="btn btn-danger btn-sm mx-3">Delete Account</button>
+            </form>
+        <%}%>
+           
+    </div>
+    <div class="skills">
+        <div class="detail_box">
+            <table>
+                <tr>
+                    <th>Current CPI</th>
+                    <td> : </td>
+                    <td><%=student.cpi%></td>
+                </tr>
+                <tr>
+                    <th>Coding-Platform Links</th>
+                    <td> : </td>
+                    <td><a href="<%=student.coding_link%>" style="text-decoration: none; font-size: large; text-align: center; font-weight: 400;"><p style=" margin-left: 10px; font-style: normal; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Coding Profile</p></td>    
+                </tr>
+                <tr>
+                    <th>Technical Skills</th>
+                    <td> : </td>
+                    <td><%=student.core_skills%></td>
+                </tr>
+                <tr>
+                    <th>Certifications</th>
+                    <td> : </td>
+                    <td><%=student.certifications%></td>
+                </tr>
+            </table>
+        </div>
+        <br>
+        <div class="skills_prof">
+            <h3>Professional Skills</h3>
+            <br>
+            <div class="chart_pos">
+                <div class="chart">
+                    <svg class="circle-chart" viewbox="0 0 33.83098862 33.83098862" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+                        <circle class="circle-chart__background" stroke="#efefef" stroke-width="2" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431" />
+                        <circle class="circle-chart__circle" stroke="#00acc1" stroke-width="2" stroke-dasharray="30,100" stroke-linecap="round" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431" />
+                        <g class="circle-chart__info">
+                          <text class="circle-chart__percent" x="16.91549431" y="15.5" alignment-baseline="central" text-anchor="middle" font-size="8"><%=student.team_work %>%</text>
+                          <text class="circle-chart__subline" x="16.91549431" y="20.5" alignment-baseline="central" text-anchor="middle" font-size="2">Team Work</text>
+                        </g>
+                    </svg>
+                </div>
+                <div class="chart">
+                    <svg class="circle-chart" viewbox="0 0 33.83098862 33.83098862" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+                        <circle class="circle-chart__background" stroke="#efefef" stroke-width="2" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431" />
+                        <circle class="circle-chart__circle" stroke="#00acc1" stroke-width="2" stroke-dasharray="30,100" stroke-linecap="round" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431" />
+                        <g class="circle-chart__info">
+                          <text class="circle-chart__percent" x="16.91549431" y="15.5" alignment-baseline="central" text-anchor="middle" font-size="8"><%=student.problem_solving %>%</text>
+                          <text class="circle-chart__subline" x="16.91549431" y="20.5" alignment-baseline="central" text-anchor="middle" font-size="2">Problem-solving Skills</text>
+                        </g>
+                    </svg>
+                </div>
+                <div class="chart">
+                    <svg class="circle-chart" viewbox="0 0 33.83098862 33.83098862" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+                        <circle class="circle-chart__background" stroke="#efefef" stroke-width="2" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431" />
+                        <circle class="circle-chart__circle" stroke="#00acc1" stroke-width="2" stroke-dasharray="30,100" stroke-linecap="round" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431" />
+                        <g class="circle-chart__info">
+                        <text class="circle-chart__percent" x="16.91549431" y="15.5" alignment-baseline="central" text-anchor="middle" font-size="8"><%=student.communication %>%</text>
+                        <text class="circle-chart__subline" x="16.91549431" y="20.5" alignment-baseline="central" text-anchor="middle" font-size="2">Communication Skills</text>
+                        </g>
+                    </svg>
+                </div>
+                <div class="chart">
+                    <svg class="circle-chart" viewbox="0 0 33.83098862 33.83098862" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+                        <circle class="circle-chart__background" stroke="#efefef" stroke-width="2" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431" />
+                        <circle class="circle-chart__circle" stroke="#00acc1" stroke-width="2" stroke-dasharray="30,100" stroke-linecap="round" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431" />
+                        <g class="circle-chart__info">
+                          <text class="circle-chart__percent" x="16.91549431" y="15.5" alignment-baseline="central" text-anchor="middle" font-size="8"><%=student.time_management %>%</text>
+                          <text class="circle-chart__subline" x="16.91549431" y="20.5" alignment-baseline="central" text-anchor="middle" font-size="2">Time-Management</text>
+                        </g>
+                    </svg>
+                </div>
+            </div>
+    </div>
+</div>

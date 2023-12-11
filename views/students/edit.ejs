@@ -1,0 +1,80 @@
+<% layout('layout/boilerplate') -%>;
+<form action="/students/<%=student._id%>?_method=PATCH" method="post" >
+    <div class="mb-3">
+        <label for="name" class="form-label">Name</label>
+        <input type="text" name="name" id="name" class="form-control" value="<%=student.name%>">
+
+    </div>
+    <div class="mb-3">
+        <label for="img" class="form-label">Profile</label>
+        <input type="text" name="img" id="img" class="form-control" value="<%=student.img%>">
+    </div>
+    <div class="mb-3">
+        <label for="address" class="form-label">Address</label>
+        <input type="text" name="address" id="name" class="form-control" value="<%=student.address%>">
+
+    </div>
+    <div class="mb-3">
+        <label for="course" class="form-label">Course</label>
+        <input type="text" name="course" id="name" class="form-control" value="<%=student.course%>">
+
+    </div>
+    <div class="mb-3">
+        <label for="branch" class="form-label">Branch</label>
+        <input type="text" name="branch" id="name" class="form-control" value="<%=student.branch%>">
+
+    </div>
+    <div class="mb-3">
+        <label for="year" class="form-label">Year</label>
+        <input type="number" name="year" id="name" class="form-control" value="<%=student.year%>">
+
+    </div>
+    <div class="mb-3">
+        <label for="core_skills" class="form-label">Core Skills</label>
+        <input type="text" name="core_skills" id="name" class="form-control" value="<%=student.core_skills%>">
+
+    </div>
+    <div class="mb-3">
+        <label for="coding_link" class="form-label">Coding platform(e.g. Leetcode,Codeforces link)</label>
+        <input type="text" name="coding_link" id="name" class="form-control" value="<%=student.coding_link%>">
+
+    </div>
+    <div class="mb-3">
+        <label for="certifications" class="form-label">Certifications</label>
+        <input type="text" name="certifications" id="name" class="form-control" value="<%=student.certifications%>">
+
+    </div>
+    <div class="mb-3">
+        <label for="cpi" class="form-label">CPI</label>
+        <div class="input-group mb-3">
+            <!-- <span class="input-group-text">$</span> -->
+            <input type="number" class="form-control" name="cpi" aria-label="Amount (to the nearest dollar)" value="<%=student.cpi%>">
+            <!-- <span class="input-group-text">.00</span> -->
+        </div>
+    </div>
+    <br><h2>Professional Skills</h2>
+    <p>*<i>All Values are in per%(don't put %)</i></p><br>
+    <div class="mb-3">
+        <label for="team_work" class="form-label">Team-work</label>
+        <input type="number" name="team_work" id="name" class="form-control" required="" value="<%=student.team_work%>">
+
+    </div>
+    <div class="mb-3">
+        <label for="problem_solving" class="form-label">Problem-solving</label>
+        <input type="number" name="problem_solving" id="name" class="form-control" required="" value="<%=student.problem_solving%>">
+
+    </div>
+    <div class="mb-3">
+        <label for="communication" class="form-label">Communication</label>
+        <input type="number" name="communication" id="name" class="form-control" required="" value="<%=student.communication%>">
+
+    </div>
+    <div class="mb-3">
+        <label for="time_management" class="form-label">Time-Management</label>
+        <input type="number" name="time_management" id="name" class="form-control" required="" value="<%=student.time_management%>">
+
+    </div>
+    
+    
+    <button type="submit" class="btn btn-success">Edit Details</button>
+</form>

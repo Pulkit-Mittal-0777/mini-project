@@ -1,0 +1,80 @@
+<!-- <nav class="navbar fixed-top navbar-expand-lg " style="background-color: rgb(95, 95, 238);">
+  <div class="container">
+    <a class="navbar-brand" href="#">Skill's World </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/students">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/students/new">Add Profile</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav mb-2">
+        
+        <li class="nav-link">
+          
+      </li>
+
+      </ul>
+    </div>
+  </div>
+</nav> -->
+<style>
+  body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    margin-left: 10%;
+  }
+
+  #sidebar {
+    height: 100%;
+    width: 200px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    padding-top: 20px;
+  }
+
+  #sidebar a {
+    padding: 10px;
+    text-decoration: none;
+    font-size: 18px;
+    color: white;
+    display: block;
+    transition: 0.3s;
+  }
+
+  #sidebar a:hover {
+    background-color: #555;
+  }
+
+  #content {
+    margin-left: 200px;
+    padding: 16px;
+    
+  }
+</style>
+
+<body>
+
+<div id="sidebar" class="">
+  <a href="/students">Home</a>
+  <br>
+ 
+
+
+  <a class="nav-link" href="/user/<%=currentUser._id%>">My profile</a>
+  <br>
+  <a class="nav-link active" href="/logout">Logout</a>
+</div>

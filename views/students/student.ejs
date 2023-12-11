@@ -1,0 +1,38 @@
+<% layout('layout/boilerplate') -%>
+<%- include('../partials/flash')  %> 
+<style>
+.back_g{
+background-image: url('https://upload.wikimedia.org/wikipedia/en/4/42/GLA_University_logo.png');
+background-repeat:no-repeat;
+background-position: 80% 50%;
+background-attachment: fixed;
+}
+</style>
+<div class="back_g">
+<% for(let item of students ) {%>
+<div class="card mb-3 bg-warning " style="max-width: 540px;">
+
+<div class="row g-0">
+
+  <div class="col-md-4 ">
+    <img src="<%=item.img %>" class="img-fluid rounded-start" alt="Card title">
+  </div>
+  <div class="col-md-8">
+    <div class="card-body">
+      <h4 class="card-title"><b>Name: </b>
+        <%=item.name %>
+      </h4>
+      <h5 class="card-text"><b>Course: </b>
+        <%=item.course %>
+          </h4>
+          <p class="card-text"><b>Branch-Year: </b>
+            <%=item.branch %>
+              <%=item.year %>rd yr.
+          </p>
+          <a href="/students/<%=item._id%>" class="btn btn-info">Details</a>
+    </div>
+  </div>
+</div>
+</div>
+<%}%>
+</div>

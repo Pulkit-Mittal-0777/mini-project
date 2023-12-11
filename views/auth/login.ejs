@@ -1,0 +1,100 @@
+
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+<style>
+    @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css');
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins',sans-serif 
+    }
+    .bg{
+        background-image: url(https://img.freepik.com/premium-vector/futuristic-background-style_23-2148503794.jpg?size=626&ext=jpg&ga=GA1.1.1826414947.1701043200&semt=ais);
+        background-position: center;
+        background-size: cover;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        min-height: 100vh;
+
+    }
+    .row{
+        display: inline-flex;
+        box-shadow: 0 2px 10px 10px rgba(0,0,0,0.2);
+    }
+    .logo{
+        width:550px;
+        height: 470px;
+        background-image: url(https://t4.ftcdn.net/jpg/04/60/71/01/360_F_460710131_YkD6NsivdyYsHupNvO3Y8MPEwxTAhORh.jpg);
+        background-position:center;
+        background-size: cover;
+        border-radius: 20px;
+    }
+    .logo h2{
+        color: aliceblue;
+        padding: 15px;
+    }
+    .col-md-6{
+        width: 320px;
+        background: rgb(88, 237, 190);
+        color:black;
+        padding: 20px;
+        text-align: center;
+        border-radius: 20px;
+    }
+    form label{
+        float: left;
+        margin: 25px 0px 10px 25px;
+    }
+    label{
+        font-size: 14px;
+    }
+    form input,form button{
+        width: 200px;
+        height: 35px;
+        color: rgb(18, 17, 17);
+        outline: none;
+        border: none;
+        border-radius: 15px; 
+        padding: 10px;
+    }
+    .btn{
+        background: rgb(228, 18, 18);
+        font-size: 10px 0 10px 20px;
+        margin: 15px 25px;
+        padding:1px;
+        cursor: pointer;
+    }
+    form a{
+        color: rgb(225, 10, 182);
+        font-size: 18px;
+        margin: 15px 25px;
+    }
+</style>
+<%- include('../partials/flash')  %> 
+<div class="bg">
+    <div class="row">
+        <div class="logo">
+            <h2>Student Portal</h2>
+        </div>
+        <div class="col-md-6 mx-auto">
+            <h1>Welcome !</h1>
+            <p>Sign-in to your account</p>
+            <form action="/login" method="post">
+                <div class="mb-3">
+                    <label for="username" class="form-label">Username</label>
+                    <i class="far fa-user"></i>
+                    <input class="form-control" type="text" name="username" id="name" required="" placeholder="Username">
+                </div>
+               <div class="mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <i class="fas fa-unlock-alt"></i>
+                    <input type="password" class="form-control" name="password" required="" placeholder="********">
+                </div>
+                <button type="submit"  class="btn btn-success btn-sm">Login</button>
+    
+                <p> Not registered yet? <a href="/register">Sign-up</a></p>
+            </form>
+        </div>
+    </div>
+</div>
